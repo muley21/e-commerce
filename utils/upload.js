@@ -1,6 +1,6 @@
 const multer = require("multer")
 const fs = require("fs")
-const path = require ("path")
+const path = require("path")
 
 const storage = multer.diskStorage({
     filename: (req, file, cb) => {
@@ -8,8 +8,8 @@ const storage = multer.diskStorage({
         cb(null, fn)
     },
     destination: (req, file, cb) => {
-        const dest ="uploads"
-        if(!fs.existsSync(dest)){
+        const dest = "uploads"
+        if (!fs.existsSync(dest)) {
             fs.mkdirSync(dest)
         }
         cb(null, dest)
@@ -17,4 +17,4 @@ const storage = multer.diskStorage({
 })
 
 //                                          Front End input file name
-module.exports = multer({storage}).single("thumb")
+module.exports = multer({ storage }).single("imageURL")
